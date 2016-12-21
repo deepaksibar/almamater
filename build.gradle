@@ -1,1 +1,27 @@
 
+allprojects {
+	apply plugin: 'maven'
+	group = 'com.almamater'
+	version = '0.0.1'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse-wtp'
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+
+	repositories {	
+		mavenCentral()
+	}  
+  
+	jar {
+		sourceSets {
+			main {
+				resources {
+					exclude 'development.properties'
+				}
+			}
+		}
+	}
+}
